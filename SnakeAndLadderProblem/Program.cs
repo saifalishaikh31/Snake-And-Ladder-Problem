@@ -9,6 +9,9 @@ namespace SnakeAndLadderProblem
     {
         static void Main(string[] args)
         {
+            SnakeAndLaddeGame game = new SnakeAndLaddeGame();
+            game.Play();
+            Console.ReadLine();
         }
     }
 }
