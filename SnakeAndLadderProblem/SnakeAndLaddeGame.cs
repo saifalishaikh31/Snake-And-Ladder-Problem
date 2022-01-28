@@ -7,9 +7,12 @@ namespace SnakeAndLadderProblem
 {
     class SnakeAndLaddeGame
     {
-        public void Play()
+        int player_pos = 0;
+        Random random = new Random();
+        public int DiceRoll()
         {
-            int player_pos = 0;
+            return random.Next(1, 7);  
+            
         }
     }
 }
