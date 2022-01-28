@@ -47,8 +47,7 @@ namespace SnakeAndLadderProblem
                 }
                 Console.WriteLine("Player position"+ this.player_pos);
             }
-            Console.WriteLine("Number of time Dice Rolled"+ count);
-           
+            Console.WriteLine("Number of time Dice Rolled" + count);           
         }
     }
 }
