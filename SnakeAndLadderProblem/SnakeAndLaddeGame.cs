@@ -7,18 +7,21 @@ namespace SnakeAndLadderProblem
 {
     class SnakeAndLaddeGame
     {
-        const int NOPLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION=100;
-        int player_pos = 0, count=0;
+        const int NOPLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100, POSITION = 0;
+        int player1_pos = 0, player2_pos = 0, count = 0;
+        
         Random random = new Random();
         public int DiceRoll()
         {
             count++;
             return random.Next(1, 7);
         }
-       
+
+
+
         public void Play()
         {
-            while (this.player_pos != WINNING_POSITION)
+            while (this.player1_pos != WINNING_POSITION && this.player2_pos != WINNING_POSITION)
             {
                 int option = random.Next(0, 3);
                 switch (option)
@@ -27,27 +30,71 @@ namespace SnakeAndLadderProblem
                         //Console.WriteLine("The player stays in the same position");
                         break;
                     case LADDER:
-                        if(this.player_pos + DiceRoll() < 100)
+                        if (this.player1_pos + DiceRoll() < 100)
                         {
-                            this.player_pos += DiceRoll();
+                            Console.WriteLine("player 1 position : " + this.player1_pos);
+                            this.player1_pos += DiceRoll();
+                            if (this.player1_pos + DiceRoll() < 100)
+                            {
+                                Console.WriteLine("player 1 play again");
+                                this.player1_pos += DiceRoll();
+                                Console.WriteLine("player 1 position : " + this.player1_pos);
+                            }
+                           
                         }
-                        break;
-                    case SNAKE:
-                        if (this.player_pos + DiceRoll() >= 0)
+                        
+                        if (this.player2_pos + DiceRoll() < 100)
                         {
-                            this.player_pos -= DiceRoll();
+                            Console.WriteLine("player 2 position : " + this.player2_pos);
+                            this.player2_pos += DiceRoll();
+                            if (this.player2_pos + DiceRoll() < 100)
+                            {
+                                Console.WriteLine("player 2 play again");
+                                this.player2_pos += DiceRoll(); ;
+                                Console.WriteLine("player 2 position : " + this.player2_pos);
+                            }
+                          
+                        }
+                        
+                        break;
+
+                    case SNAKE:
+
+                        if (this.player1_pos + DiceRoll() >= 0)
+                        {
+
+                            this.player1_pos -= DiceRoll();
+
                         }
                         else
                         {
-                            this.player_pos = 0;
+                            this.player1_pos = 0;
+                        }
+
+                        if (this.player2_pos + DiceRoll() >= 0)
+                        {
+                            this.player2_pos -= DiceRoll();
+                        }
+                        else
+                        {
+                            this.player2_pos = 0;
                         }
                         break;
                     default:
                         break;
+
                 }
-                Console.WriteLine("Player position"+ this.player_pos);
+
+            } 
+            Console.WriteLine("Number of time Dice Rolled" + count);
+            if (player1_pos == WINNING_POSITION)
+            {
+                Console.WriteLine("Player1 Has Won The Game!!!");
             }
-            Console.WriteLine("Number of time Dice Rolled" + count);           
+            else
+            {
+                Console.WriteLine("Player2 Has Won The Game!!!");
+            }
         }
     }
 }

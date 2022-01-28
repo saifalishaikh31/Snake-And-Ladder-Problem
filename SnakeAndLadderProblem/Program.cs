@@ -11,6 +11,7 @@ namespace SnakeAndLadderProblem
         {
             SnakeAndLaddeGame game = new SnakeAndLaddeGame();
             game.Play();
+            
             Console.ReadLine();
         }
     }
