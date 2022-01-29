@@ -64,20 +64,24 @@ namespace SnakeAndLadderProblem
                         {
 
                             this.player1_pos -= DiceRoll();
+                            Console.WriteLine("player 1 position : " + this.player1_pos);
 
                         }
                         else
                         {
                             this.player1_pos = 0;
+                            Console.WriteLine("player 1 position : " + this.player1_pos);
                         }
 
                         if (this.player2_pos + DiceRoll() >= 0)
                         {
                             this.player2_pos -= DiceRoll();
+                            Console.WriteLine("player 2 position : " + this.player2_pos);
                         }
                         else
                         {
                             this.player2_pos = 0;
+                            Console.WriteLine("player 2 position : " + this.player2_pos);
                         }
                         break;
                     default:
