@@ -29,6 +29,7 @@ namespace SnakeAndLadderProblem
                         if (this.player_pos + DiceRoll() < 100)
                         {
                             this.player_pos += DiceRoll();
+                            Play();
                         }
                         break;
                     case SNAKE:
